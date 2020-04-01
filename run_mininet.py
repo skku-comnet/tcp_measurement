@@ -189,10 +189,10 @@ def run_test(commands, directory, name, bandwidth, initial_rtt, buffer_size, buf
         host_counter += 1
 
         # setup FQ, algorithm, netem, nc host
-        print(send.cmd('tc qdisc add dev {}-eth0 root fq pacing'.format(send)))
+        send.cmd('tc qdisc add dev {}-eth0 root fq pacing'.format(send))
         send.cmd('ip route change 10.0.0.0/8 dev {}-eth0 congctl {}'.format(send, cmd['algorithm']))
         send.cmd('ethtool -K {}-eth0 tso off'.format(send))
-        print(recv.cmd('tc qdisc add dev {}-eth0 root netem delay {}'.format(recv, cmd['rtt'])))
+        recv.cmd('tc qdisc add dev {}-eth0 root netem delay {}'.format(recv, cmd['rtt']))
         recv.cmd('timeout {} nc -klp 9000 > /dev/null &'.format(duration))
 
         # pull BBR values
