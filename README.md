@@ -18,7 +18,7 @@ positional arguments:
 optional arguments:
   -h, --help      show this help message and exit
   -b BANDWIDTH    Initial bandwidth of the bottleneck link. (default: 10mbit)
-  -r RTT          Initial rtt for all flows. (default 0ms)
+  -r RTT          Initial rtt for all flows. (default 10ms)
   -d DIRECTORY    Path to the output directory. (default: .)
   -s BUFFER_SIZE  Burst size of the token bucket filter. (default: 1600b)
   -l LATENCY      Maximum latency at the bottleneck buffer. (default: 100ms)
